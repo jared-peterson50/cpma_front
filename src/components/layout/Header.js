@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header id="header">
       <Link to="/">
-        <h1 className="title">CPMA role based auth demo</h1>
+        <h1 className="title">ASU Marketing Coffee Shop</h1>
       </Link>
       <AuthOptions />
     </header>

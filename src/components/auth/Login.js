@@ -27,7 +27,7 @@ export default function Login() {
     try {
       const loginUser = { email, password };
       const loginRes = await Axios.post(
-        "http://13.59.217.78:3000/users/login",
+        "http://54.244.181.135:3000/users/login",
         loginUser
       );
       console.log("loginRes.data.token: " + loginRes.data.token);

@@ -9,6 +9,10 @@ export default function AuthOptions() {
   const admin = () => history.push("/admin");
   const register = () => history.push("/register");
   const login = () => history.push("/login");
+  const team = () => history.push("/team");
+  const scoreboard = () => history.push("/scoreboard");
+  const coffee = () => history.push("/coffee");
+
   const logout = () => {
     setUserData({
       token: undefined,
@@ -16,10 +20,13 @@ export default function AuthOptions() {
     });
     localStorage.setItem("auth-token", "");
   };
-
+//This will render just a logout and admin button if logged in else show register/login
   return (
     <nav className="auth-options">
       {userData.user ? (<> 
+      <button onClick={coffee}>Coffee</button> 
+      <button onClick={team}>Teams</button>
+      <button onClick={scoreboard}>Scoreboard</button> 
       <button onClick={logout}>Log out</button> 
       <button onClick={admin}>Admin</button>
       </>

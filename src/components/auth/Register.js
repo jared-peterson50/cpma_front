@@ -19,8 +19,8 @@ export default function Register() {
 
     try {
       const newUser = { email, password, passwordCheck, displayName };
-      await Axios.post("http://13.59.217.78:3000/users/register", newUser);
-      const loginRes = await Axios.post("http://13.59.217.78:3000/users/login", {
+      await Axios.post("http://54.244.181.135:3000/users/register", newUser);
+      const loginRes = await Axios.post("http://54.244.181.135:3000/users/login", {
         email,
         password,
       });
