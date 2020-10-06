@@ -1,20 +1,15 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
+import Admin from '../auth/Admin';
+import Login from "../auth/Login";
 
 export default function Home() {
   const { userData } = useContext(UserContext);
 
-  return (
-    <div className="page">
-      {userData.user ? (
-        <h1>Welcome {userData.user.displayName}</h1>
-      ) : (
-        <>
-          <h2>You are not logged in</h2>
-          <Link to="/login">Log in</Link>
-        </>
-      )}
-    </div>
-  );
+  if(!userData.user)
+    return <Login/>
+  if(userData.user.role === "admin")
+    return <Admin/>
+  if(userData.user)
+    return <h1>Welcome {userData.user.displayName} to the Home page </h1>
 }

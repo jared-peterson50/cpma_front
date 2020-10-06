@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-
 export default function AuthOptions() {
   const { userData, setUserData } = useContext(UserContext);
 
@@ -19,6 +18,7 @@ export default function AuthOptions() {
       user: undefined,
     });
     localStorage.setItem("auth-token", "");
+    
   };
 //if the user is logged in render the coffee,teams,scoreboard,logout buttons
 //else render login, admin, register buttons
@@ -27,14 +27,15 @@ export default function AuthOptions() {
       {userData.user ? (<> 
       <button onClick={coffee}>Coffee</button> 
       <button onClick={team}>Teams</button>
-      <button onClick={scoreboard}>Scoreboard</button> 
-      <button onClick={logout}>Log out</button> 
+      <button onClick={scoreboard}>Scoreboard</button>
+      <button onClick={admin}>Admin</button>
+      <button onClick={logout}>Log out</button>
       </>
       ) : (
         <>
           <button onClick={register}>Register</button>
           <button onClick={login}>Log in</button>
-          <button onClick={admin}>Admin</button>
+          
         </>
       )}
     </nav>

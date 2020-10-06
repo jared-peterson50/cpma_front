@@ -3,43 +3,31 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import Axios from "axios";
 import ErrorNotice from "../misc/ErrorNotice";
-//normal user
-//test1@test.com
-//password
 
-//admin user
-//admin@asu.edu
-//password
-
-//<button onClick ={() => setCount(count +1)}>count: {count}</button>
-//<div>user data: {setUserData.user}</div>
 export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
 
-  const {userData, setUserData } = useContext(UserContext);
+  const {setUserData } = useContext(UserContext);
   
   const history = useHistory();
   
   const submit = async (e) => {
     e.preventDefault();
     try {
+      //
+      //"http://54.244.181.135:3000/users/login",
       const loginUser = { email, password };
       const loginRes = await Axios.post(
-        "http://54.244.181.135:3000/users/login",
+        "http://localhost:5000/users/login",
         loginUser
       );
-      console.log("loginRes.data.token: " + loginRes.data.token);
-      console.log(userData);
-      console.log("from user");
-      console.log(userData.user);
+      
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,
-        role: "yep"
       });
-      console.log(userData);
       localStorage.setItem("auth-token", loginRes.data.token);
       history.push("/");
     } catch (err) {

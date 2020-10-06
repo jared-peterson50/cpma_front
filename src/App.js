@@ -7,7 +7,6 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import UserContext from "./context/UserContext";
 import Admin from './components/auth/Admin';
-import AdminSucess from './components/auth/AdminSucess';
 import ScoreBoard from './components/pages/ScoreBoard';
 import Coffee from './components/pages/Coffee';
 import Team from './components/pages/Team';
@@ -71,7 +70,6 @@ export default function App() {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/admin" component={Admin} />
-              <Route path="/adminsuccess" component={AdminSucess} />
               <Route path ="/scoreboard" component={ScoreBoard}/>
               <Route path="/team" component={Team} />
               <Route path="/coffee" component={Coffee} />

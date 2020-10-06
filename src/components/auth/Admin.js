@@ -1,71 +1,15 @@
-import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useContext } from 'react'
+import Login from "../auth/Login";
 import UserContext from "../../context/UserContext";
-import Axios from "axios";
-import ErrorNotice from "../misc/ErrorNotice";
 
 export default function Admin() {
-  //const [email, setEmail] = useState();
-  //const [password, setPassword] = useState();
-  const [error, setError] = useState();
-
-  const {userData} = useContext(UserContext);
-  const history = useHistory();
-
-  const submit = async (e) => {
-    e.preventDefault();
-    try {
-      //const loginUser = { email, password };
-
-      const loginRes = await Axios.get("http://13.59.217.78:3000/users/admin", {
-          headers: { "x-auth-token": userData.token },
-        });
-      //setUserData({
-      //  token: loginRes.data.token,
-      //  user: loginRes.data.user,
-      //  role: loginRes.data.role,
-      //});
-      localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/adminsuccess");
-    } catch (err) {
-      console.log("had an error");
-      err.response.data.msg && setError(err.response.data.msg);
-    }
-  };
-  return (
-    <div className="page">
-      <h2>Log in</h2>
-      {error && (
-        <ErrorNotice message={error} clearError={() => setError(undefined)} />
-      )}
-      <form className="form" onSubmit={submit}>
-        <label htmlFor="login-email">Email</label>
-        <input
-          id="login-email"
-          type="email"
-          
-        />
-
-        <label htmlFor="login-password">Password</label>
-        <input
-          id="login-password"
-          type="password"
-        />
-
-        <input type="submit" value="Log in" />
-      </form>
-    </div>
-  );
+  const { userData } = useContext(UserContext);
+    //if no user data then login, if logged in but not admin role, print not an admin
+    //if admin print welcome to admin page future admin stuff
+    if(!userData.user)
+        return <Login/>
+    if(userData.user.role === "admin")
+        return <div>Welcome to the Admin page</div>
+    if(userData.user)
+        return  <h2>not an admin </h2> 
 }
-
-/*
-import React from 'react'
-
-export default function Admin() {
-    return (
-        <div>
-            welcome to admin
-        </div>
-    )
-}
-*/

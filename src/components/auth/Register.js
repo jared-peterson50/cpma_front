@@ -9,6 +9,7 @@ export default function Register() {
   const [password, setPassword] = useState();
   const [passwordCheck, setPasswordCheck] = useState();
   const [displayName, setDisplayName] = useState();
+  const [teamName, setTeamName] = useState();
   const [error, setError] = useState();
 
   const { setUserData } = useContext(UserContext);
@@ -16,17 +17,19 @@ export default function Register() {
 
   const submit = async (e) => {
     e.preventDefault();
-
+//await Axios.post("http://54.244.181.135:3000/users/register", newUser);
+//const loginRes = await Axios.post("http://54.244.181.135:3000/users/login", {
     try {
-      const newUser = { email, password, passwordCheck, displayName };
-      await Axios.post("http://54.244.181.135:3000/users/register", newUser);
-      const loginRes = await Axios.post("http://54.244.181.135:3000/users/login", {
+      const newUser = { email, password, passwordCheck, displayName,teamName };
+      await Axios.post("http://localhost:5000/users/register", newUser);
+      const loginRes = await Axios.post("http://localhost:5000/users/login", {
         email,
         password,
       });
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,
+        
       });
       localStorage.setItem("auth-token", loginRes.data.token);
       history.push("/");
@@ -66,6 +69,12 @@ export default function Register() {
           id="register-display-name"
           type="text"
           onChange={(e) => setDisplayName(e.target.value)}
+        />
+        <label htmlFor="register-team-name">Team name</label>
+        <input
+          id="register-team-name"
+          type="text"
+          onChange={(e) => setTeamName(e.target.value)}
         />
 
         <input type="submit" value="Register" />
