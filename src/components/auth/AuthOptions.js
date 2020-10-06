@@ -20,7 +20,8 @@ export default function AuthOptions() {
     });
     localStorage.setItem("auth-token", "");
   };
-//This will render just a logout and admin button if logged in else show register/login
+//if the user is logged in render the coffee,teams,scoreboard,logout buttons
+//else render login, admin, register buttons
   return (
     <nav className="auth-options">
       {userData.user ? (<> 
@@ -28,12 +29,12 @@ export default function AuthOptions() {
       <button onClick={team}>Teams</button>
       <button onClick={scoreboard}>Scoreboard</button> 
       <button onClick={logout}>Log out</button> 
-      <button onClick={admin}>Admin</button>
       </>
       ) : (
         <>
           <button onClick={register}>Register</button>
           <button onClick={login}>Log in</button>
+          <button onClick={admin}>Admin</button>
         </>
       )}
     </nav>

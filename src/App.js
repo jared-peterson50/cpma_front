@@ -12,7 +12,12 @@ import ScoreBoard from './components/pages/ScoreBoard';
 import Coffee from './components/pages/Coffee';
 import Team from './components/pages/Team';
 import "./style.css";
+/*
+this is the entrace to the application we are using a functional component and initializing
+the userData object token, user, and role.  Then in the useEffect we are checking the auth-token
+the first time the user goes to the page the auth-token is null so check that, set it to empty string
 
+*/
 export default function App() {
   const [userData, setUserData] = useState({
     token: undefined,
@@ -28,11 +33,19 @@ export default function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
+      /*
+      we are checking if the token is valid sending the token value in the header. The
+      response is stored in tokenRes.data as a boolean value either true or false.
+      */
       const tokenRes = await Axios.post(
         "http://54.244.181.135:3000/users/tokenIsValid",
         null,
         { headers: { "x-auth-token": token } }
       );
+      /*
+      if we have a valid token then allow the api call getting the users JSON data and
+      storing it in userRes
+      */
       if (tokenRes.data) {
         const userRes = await Axios.get("http://54.244.181.135:3000/users/", {
           headers: { "x-auth-token": token },
