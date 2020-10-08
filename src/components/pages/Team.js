@@ -9,6 +9,8 @@ export default function Team() {
         return <Login/>
     return (
         <div>
-            <h1>Welcome {userData.user.displayName} to the team page </h1></div>
+            <h1>Welcome {userData.user.displayName} to the team page </h1>
+            <div>Team ID, Team Name, Team members list</div>
+        </div>
     )
 }

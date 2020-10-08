@@ -10,6 +10,7 @@ import Admin from './components/auth/Admin';
 import ScoreBoard from './components/pages/ScoreBoard';
 import Coffee from './components/pages/Coffee';
 import Team from './components/pages/Team';
+import Student from './components/pages/Student';
 import "./style.css";
 /*
 this is the entrace to the application we are using a functional component and initializing
@@ -73,6 +74,7 @@ export default function App() {
               <Route path ="/scoreboard" component={ScoreBoard}/>
               <Route path="/team" component={Team} />
               <Route path="/coffee" component={Coffee} />
+              <Route path="/student" component={Student} />
             </Switch>
           </div>
         </UserContext.Provider>

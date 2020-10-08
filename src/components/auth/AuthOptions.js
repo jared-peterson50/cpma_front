@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
+
 export default function AuthOptions() {
   const { userData, setUserData } = useContext(UserContext);
 
@@ -11,6 +12,7 @@ export default function AuthOptions() {
   const team = () => history.push("/team");
   const scoreboard = () => history.push("/scoreboard");
   const coffee = () => history.push("/coffee");
+  const student =() => history.push("/student");
 
   const logout = () => {
     setUserData({
@@ -28,6 +30,7 @@ export default function AuthOptions() {
       <button onClick={coffee}>Coffee</button> 
       <button onClick={team}>Teams</button>
       <button onClick={scoreboard}>Scoreboard</button>
+      <button onClick={student}>Student</button>
       <button onClick={admin}>Admin</button>
       <button onClick={logout}>Log out</button>
       </>
