@@ -15,24 +15,22 @@ export default function Admin() {
       try {
         console.log("hit delete");
         var x = document.getElementById("textBoxDel").value;
-        var a = {};
-        a.user = x;
-        const params = JSON.stringify(a);
-        //const deleted = await Axios.delete("http://localhost:5000/users/delete", params,{ headers: {"x-auth-token" :token }});
-        
-        const deleted = await Axios.delete("http://localhost:5000/users/delete",{ headers: {"x-auth-token" :token }});
        
-      console.log(deleted);
+        //const deleted = await Axios.delete("http://localhost:5000/users/delete", params,{ headers: {"x-auth-token" :token }});
+        var axiosConfig = { headers: {"x-auth-token" :token, "user": x}}
+        const deleted = await Axios.delete("http://54.244.181.135:3000/users/delete",axiosConfig);
+        console.log(deleted);  
       }
       catch(err){
         console.log("error in the delete user: " + err);
       }
-    };
+    }
+  
 
     const submit = async (e) => {
         e.preventDefault();
         try {
-          const list = await Axios.get("http://localhost:5000/users/UserList",{ headers: {"x-auth-token" :token }});
+          const list = await Axios.get("http://54.244.181.135:3000/users/UserList",{ headers: {"x-auth-token" :token }});
           //we need to convert the json object to an array so we can use the map function
           try{
             var a =Object.values(list.data);

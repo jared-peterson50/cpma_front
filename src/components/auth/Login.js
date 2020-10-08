@@ -20,7 +20,7 @@ export default function Login() {
       //"http://54.244.181.135:3000/users/login",
       const loginUser = { email, password };
       const loginRes = await Axios.post(
-        "http://localhost:5000/users/login",
+        "http://54.244.181.135:3000/users/login",
         loginUser
       );
       
