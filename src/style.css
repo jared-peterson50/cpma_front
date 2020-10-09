@@ -62,12 +62,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #e02525;
+  background-color: #8E0C3A;
 }
 #header .title {
   margin: 0;
   padding: 0 1rem;
-  color: #ffffff;
+  color: #FFC72C;
 }
 #header .auth-options {
   height: 100%;
@@ -75,12 +75,12 @@ body {
 }
 #header .auth-options button {
   padding: 0 1rem;
-  background-color: #b91b1b;
-  color: #ffffff;
+  background-color: #8E0C3A;
+  color: #FFC72C;
   font-size: 1.1rem;
 }
 #header .auth-options button:hover {
-  background-color: #be3a3a;
+  background-color:#a00d40;
 }
 
 /* form */
