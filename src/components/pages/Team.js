@@ -2,6 +2,7 @@ import React from 'react'
 import {useContext} from 'react';
 import UserContext from "../../context/UserContext";
 import Login from "../auth/Login";
+import Table from "../TeamTable/TeamTable"
 
 export default function Team() {
     const { userData } = useContext(UserContext);
@@ -10,7 +11,7 @@ export default function Team() {
     return (
         <div>
             <h1>Welcome {userData.user.displayName} to the team page </h1>
-            <div>Team ID, Team Name, Team members list</div>
+            <Table></Table>
         </div>
     )
 }

@@ -160,3 +160,20 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* Student Info Page */
+
+#student-info {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 100%;
+}
+
+#student-info td, #student-info th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Team Info Page */

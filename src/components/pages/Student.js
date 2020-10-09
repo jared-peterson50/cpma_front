@@ -15,11 +15,24 @@ export default function Student() {
     return (
         <div>
             <h2>Student info page</h2>
-            <div>Your email address: {userData.user.email}</div>
-            <div>display name: {userData.user.displayName}</div>
-            <div>team name: {userData.user.teamName}</div>
-            <div>Team number: {userData.user.teamNumber}</div>
-            
+            <table id="student-info">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Team Name</th>
+                        <th>Team Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{userData.user.displayName}</td>
+                        <td>{userData.user.email}</td>
+                        <td>{userData.user.teamName}</td> 
+                        <td>{userData.user.teamNumber}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     )
 }
