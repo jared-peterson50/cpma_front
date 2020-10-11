@@ -25,6 +25,7 @@ export default function App() {
     role: '2',
   });
   
+  //we set the auth token to the empty string if empty so we dont raise an exeption
   useEffect(() => {
     document.title = "ASU Marketing Coffee Shop"
     const checkLoggedIn = async () => {
@@ -37,19 +38,20 @@ export default function App() {
       we are checking if the token is valid sending the token value in the header. The
       response is stored in tokenRes.data as a boolean value either true or false.
       */
-      const tokenRes = await Axios.post(
-        "http://54.244.181.135:3000/users/tokenIsValid",
-        null,
-        { headers: { "x-auth-token": token } }
-      );
+
+      const tokenRes = await Axios.post(process.env.REACT_APP_URL+"/users/tokenIsValid",
+        null,{ headers: { "x-auth-token": token }});
+      
       /*
       if we have a valid token then allow the api call getting the users JSON data and
       storing it in userRes
       */
+      console.log("token: ", token)
       if (tokenRes.data) {
-        const userRes = await Axios.get("http://54.244.181.135:3000/users/", {
-          headers: { "x-auth-token": token },
-        });
+        //trying null
+        const userRes = await Axios.get(process.env.REACT_APP_URL+"/users/",{
+          headers: { "x-auth-token": token }});
+          console.log("userRES!!!", userRes)
         setUserData({
           token,
           user: userRes.data,

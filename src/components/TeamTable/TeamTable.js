@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {useContext} from 'react';
-import UserContext from "../../context/UserContext";
-import Login from "../auth/Login";
+//import {useContext} from 'react';
+//import UserContext from "../../context/UserContext";
+//import Login from "../auth/Login";
 import tableStyle from './TeamTable.module.css'; 
 
 class Table extends Component {

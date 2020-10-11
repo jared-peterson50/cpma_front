@@ -18,13 +18,11 @@ export default function Register() {
 
   const submit = async (e) => {
     e.preventDefault();
-//await Axios.post("http://54.244.181.135:3000/users/register", newUser);
-//const loginRes = await Axios.post("http://54.244.181.135:3000/users/login", {
     try {
       const newUser = { email, password, passwordCheck, displayName, teamName, teamNumber};
       console.log("team number: " + newUser.teamNumber);
-      await Axios.post("http://54.244.181.135:3000/users/register", newUser);
-      const loginRes = await Axios.post("http://54.244.181.135:3000/users/login", {email,password});
+      await Axios.post(process.env.REACT_APP_URL+"/users/register", newUser);
+      const loginRes = await Axios.post(process.env.REACT_APP_URL+"/users/login", {email,password});
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,

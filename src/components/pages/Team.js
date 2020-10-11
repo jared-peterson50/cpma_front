@@ -6,6 +6,7 @@ import Table from "../TeamTable/TeamTable"
 
 export default function Team() {
     const { userData } = useContext(UserContext);
+
     if(!userData.user)
         return <Login/>
     return (

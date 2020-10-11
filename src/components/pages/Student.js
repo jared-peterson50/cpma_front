@@ -8,8 +8,6 @@ export default function Student() {
     //if admin print welcome to admin page future admin stuf
     
     //I dont think there is a need for findTeam(student) the way it is now
-    console.log(JSON.stringify(userData.user));
-    console.log(userData.email);
     if(!userData.user)
         return <Login/>
     return (
