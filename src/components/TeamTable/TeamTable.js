@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 //import {useContext} from 'react';
 //import UserContext from "../../context/UserContext";
 //import Login from "../auth/Login";
-import tableStyle from './TeamTable.module.css'; 
+import tableStyle from './TeamTable.module.css';
+import UserContext from "../../context/UserContext";
 
 class Table extends Component {
 
@@ -16,6 +17,11 @@ class Table extends Component {
          ]
       }
    }
+
+   /*getTeamMembers() {
+      const { userData } = useContext(UserContext);
+      const loginRes = await Axios.post(process.env.REACT_APP_URL+"/users/team_members", userData.teamNumber);
+   }*/
 
    renderTableData() {
     return this.state.students.map((student, index) => {
