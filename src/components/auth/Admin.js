@@ -29,6 +29,8 @@ export default function Admin() {
           try{
             var a =Object.values(list.data);
             const renderList = a.map(user => <div key={user["_id"]}>_id: {user["_id"]} name: {user["displayName"]} email: {user["email"]} teamName:{user["teamNumber"]}</div>);
+            console.log(renderList)
+            alert('halt')
             setUsers(renderList);
           }
           catch(err){
